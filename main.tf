@@ -1,14 +1,15 @@
-
-resource "random_string" "bucket_name" {
-  length = 16
-  special = false
-  lower = true
-  upper = false
+terraform {
+  # cloud {
+ #   organization = "RedTurtleSoftware"
+#
+ #   workspaces {
+ #     name = "terra-house-1"
+ #   }
+ # }   
 }
 
-resource "aws_s3_bucket" "example" {
-  bucket = random_string.bucket_name.result
-  tags = {
-    UserUuid = var.user_uuid
-  }
+module "terrahouse_aws" {
+  source = "./modules/terrahouse_aws"
+  user_uuid = var.user_uuid
+  bucket_name = var.bucket_name
 }
