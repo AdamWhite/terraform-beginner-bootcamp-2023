@@ -17,3 +17,23 @@ variable "bucket_name" {
       error_message = "The bucket name must be between 3 and 63 characters"
   }
 }
+
+variable "index_html_filepath" {
+  description = "The file path for the index.html."
+  type        = string
+
+  validation {
+    condition     = fileexists(var.index_html_filepath) && can(regex(".+\\.html$", var.index_html_filepath))
+    error_message = "The provided path either does not point to a .html file or the file does not exist. Please provide a valid path to an existing index.html file."
+  }
+}
+
+variable "error_html_filepath" {
+  description = "The file path for the error.html."
+  type        = string
+
+  validation {
+    condition     = fileexists(var.error_html_filepath) && can(regex(".+\\.html$", var.error_html_filepath))
+    error_message = "The provided path either does not point to a .html file or the file does not exist. Please provide a valid path to an existing error.html file."
+  }
+}
