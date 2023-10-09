@@ -9,7 +9,13 @@ class Home
   include ActiveModel::Validations
   attr_accessor :town, :name, :description, :domain_name, :content_version
 
-  validates :town, presence: true
+  validates :town, presence: true, inclusion: { in: [
+    'melomanic-mansion',
+    'cooker-cove ',
+    'video-valley',
+    'the-nomad-pad',
+    'gamers-grotto'
+  ]}
   validates :name, presence: true
   validates :description, presence: true
   validates :domain_name, 
@@ -159,7 +165,7 @@ class TerraTownsMockServer < Sinatra::Base
     home.town = $home[:town]
     home.name = name
     home.description = description
-    home.domain_name = domain_name
+    home.domain_name = $home[:domain_name]
     home.content_version = content_version
 
     unless home.valid?
