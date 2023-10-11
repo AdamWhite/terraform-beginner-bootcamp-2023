@@ -28,22 +28,22 @@ provider "terratowns" {
   token = var.terratowns_access_token
 }
 
-module "home_thebirch_hosting" {
+module "home_thebirchv2_hosting" {
   source = "./modules/terrahome_aws"
   user_uuid = var.teacherseat_user_uuid
-  public_path = var.thebirch.public_path
-  content_version = var.thebirch.content_version
+  public_path = var.thebirchv2.public_path
+  content_version = var.thebirchv2.content_version
 }
 
 resource "terratowns_home" "home" {
-  name = "The Birch!"
+  name = "The Birch!v2"
   description = <<DESCRIPTION
-The Birch is a home built upon a swamp. 
-It's not a yucky or smelly swamp, it's a cozy place to call home.
+The Birch v2 is a home built upon a swamp. 
+It's not a yucky or smelly swamp, it's a cozy place to call home. :)
 DESCRIPTION
-  domain_name = module.home_thebirch_hosting.domain_name
+  domain_name = module.home_thebirchv2_hosting.domain_name
   town = "missingo"
-  content_version = var.thebirch.content_version
+  content_version = var.thebirchv2.content_version
 }
 
 module "home_myhouse_hosting" {

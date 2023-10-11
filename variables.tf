@@ -10,7 +10,7 @@ variable "teacherseat_user_uuid" {
  type = string
 }
 
-variable "thebirch" {
+variable "thebirchv2" {
   type = object({
     public_path = string
     content_version = number
