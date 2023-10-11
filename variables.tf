@@ -10,14 +10,14 @@ variable "teacherseat_user_uuid" {
  type = string
 }
 
-variable "arcanum" {
+variable "thebirch" {
   type = object({
     public_path = string
     content_version = number
   })
 }
 
-variable "payday" {
+variable "myhouse" {
   type = object({
     public_path = string
     content_version = number
