@@ -46,19 +46,19 @@ DESCRIPTION
   content_version = var.thebirchv2.content_version
 }
 
-module "home_myhouse_hosting" {
+module "home_mygamershouse_hosting" {
   source = "./modules/terrahome_aws"
   user_uuid = var.teacherseat_user_uuid
   public_path = var.myhouse.public_path
   content_version = var.myhouse.content_version
 }
 
-resource "terratowns_home" "home_myhouse" {
-  name = "My custom House"
+resource "terratowns_home" "home_mygamershouse" {
+  name = "CyberPunk 2077 - Initially awful now amazing"
   description = <<DESCRIPTION
-MY custom house is nothing like the house I actually have
+Seriously! Having played starfield recently, which is a next gen game, trying Cyberpunk with the Phantom Liberty DLC... no comparison 
 DESCRIPTION
-  domain_name = module.home_myhouse_hosting.domain_name
-  town = "missingo"
+  domain_name = module.home_mygamershouse_hosting.domain_name
+  town = "gamers-grotto"
   content_version = var.myhouse.content_version
 }
